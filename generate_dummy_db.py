@@ -20,7 +20,7 @@ base_products = [
     {"name": "Kabel USB-C", "category": "Laptopy", "price": 35.00}
     ]
 
-print("Generowanie tabeli Products...")
+print("Generating products table")
 products_data = []
 for i, prod in enumerate(base_products, start=1):
         products_data.append({
@@ -32,7 +32,7 @@ for i, prod in enumerate(base_products, start=1):
 df_products = pd.DataFrame(products_data)
 df_products.to_csv("products.csv", index=False)
 
-print("Generowanie tabeli Inventory...")
+print("Generating inventory table")
 inventory_data = []
 for i in range(1, len(base_products) + 1):
         inventory_data.append({
@@ -43,7 +43,7 @@ for i in range(1, len(base_products) + 1):
 df_inventory = pd.DataFrame(inventory_data)
 df_inventory.to_csv("Inventory.csv", index=False)
 
-print("Generowanie tabeli Sales (10 000 transakcji z ostatnich 6 miesięcy)...")
+print("Generating sales table (10 000 transactions from the last 6 months)...")
 sales_data = []
 end_date = datetime.now()
 start_date = end_date - timedelta(days=180)
@@ -66,4 +66,4 @@ df_sales = pd.DataFrame(sales_data)
 df_sales = df_sales.sort_values(by="date").reset_index(drop=True)
 df_sales.to_csv("sales.csv", index=False)
 
-print("Gotowe! Wygenerowano pliki: products.csv, inventory.csv,")
+print("Done, generated files: products.csv, inventory.csv, sales.csv")
